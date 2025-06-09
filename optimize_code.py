@@ -3,7 +3,7 @@ import os
 import sys
 
 URL = os.getenv("GREEN_API_URL")
-INPUT_FILE = "one.py"
+INPUT_FILE = "src/sum.py"
 
 if not URL:
     print("❌ GREEN_API_URL not set in environment.")
