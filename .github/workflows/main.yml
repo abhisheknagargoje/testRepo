@@ -26,10 +26,12 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
-      - name: Create new branch
+      - name: Create new branch 
         run: git checkout -b "greencode-${{ github.sha }}"
 
       - name: Run green code optimizer
+        env:
+          GREEN_API_URL: ${{ secrets.GREEN_API_URL }}
         run: python3 optimize_code.py
 
       - name: Check for changes
@@ -37,7 +39,7 @@ jobs:
           git status
           git diff
 
-      - name: Commit and push
+      - name: Commit and push 
         run: |
           git add .
           git commit -m "Converted code to green code" || echo "No changes to commit"
